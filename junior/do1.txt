@@ -1,0 +1,9 @@
+- write by yourself , -> then delete , write clean
++ crud, resource controller
++ migrations , seeds
++ validate ( 2 type , request (message in this end message in resource)
++ bootstrap (in resouce )
++ pagination ( 2 type ( page end seeMore)
++ sort
+
+- do 3 time

@@ -1,0 +1,8 @@
+-create admin template
+ + use datatables
+ + sort
+ + email after signup successfuly
+ + csv , pdf
+ + multip language
+ + menu active
+ + phpunit
