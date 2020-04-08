@@ -24,7 +24,7 @@
           <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Form Create </h2>
+                <h2>Form Edit </h2>
                 
                 <div class="clearfix"></div>
               </div>
@@ -38,7 +38,8 @@
                 	</div>
                 @endif
                 @include('admin.accounts._form',[
-                    'routeName' => route('admin-accounts-create')
+                    'routeName' => route('admin-accounts-edit',[
+                      'id' => $id  ])
                   ])
               </div>
             </div>

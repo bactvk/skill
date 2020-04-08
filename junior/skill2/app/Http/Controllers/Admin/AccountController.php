@@ -45,4 +45,39 @@ class AccountController extends Controller
     	if($createSuccess) return redirect()->route('admin-accounts-list')->with('msg','Create successfuly');
     	return view('admin.accounts.create',$data);
     }
+
+    public function edit(Request $request,$pk)
+    {
+    	$data = Account::findByPK($pk);
+    	$update = false;
+    	if(empty($data)) abort(404);
+
+    	if($request->isMethod('post')){
+    		$inputs = [
+    			'name' => $request->input('name',''),
+	    		'email' => $request->input('email',''),
+	    		'avatar' => $request->avatar,
+	    		'status' => $request->input('status')
+    		];
+
+    		$accountRequest = new AccountRequest();
+    		$rules = $accountRequest->rules();
+    		$messages = $accountRequest->messages();
+    		$rules['email'] = 'required|email';
+    		if($inputs['email'] != $data['email']){
+    			$rules['email'] .= '|unique:accounts,email';
+    		}
+
+    		$validator = Validator::make($inputs,$rules,$messages);
+    		if(!$validator->fails()){
+    			$update = Account::updateAccount($data['avatar'],$inputs,$pk);
+    		}else{
+    			$data['ErrMsg'] = $this->_buildErrorMessages($validator);
+    		}
+
+    		if($update) return redirect()->route('admin-accounts-list')->with('msg','Update successfuly');
+
+    	}
+    	return view('admin.accounts.edit',$data);
+    }
 }
