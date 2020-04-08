@@ -80,4 +80,10 @@ class AccountController extends Controller
     	}
     	return view('admin.accounts.edit',$data);
     }
+
+    public function delete($id)
+    {
+        $deleteSuccess = Account::deleteAccount($id);
+        if($deleteSuccess) return redirect()->route('admin-accounts-list')->with('msg','Delete successfuly');
+    }
 }

@@ -53,14 +53,18 @@ class Account extends Model
 
     	return self::insert($inputs);
     }
-    public static function updateAccount($data,$id)
+    public static function updateAccount($old_avatar,$data,$id)
     {
     	if(!empty($data['avatar'])){
     		$file = $data['avatar'];
             $fileName = $file->getClientOriginalName();
             $file->move('assets/image/avatar/',$fileName);
             $data['avatar'] = $fileName;
-    	}
+    	}else{
+            if($old_avatar){
+                $data['avatar'] = $old_avatar;
+            }
+        }
     	return self::find($id)->update($data);
     }
 

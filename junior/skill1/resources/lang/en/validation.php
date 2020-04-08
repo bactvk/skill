@@ -131,6 +131,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'avatar' => [
+            'image' => 'The avatar phải là 1 hình nha bạn',
+            
+        ]
     ],
 
     /*

@@ -8,7 +8,7 @@ class Account extends Model
 {
 	const PATH_IMG = "assets/img/avatar/";
     protected $table = 'accounts';
-    protected $fillable = ['id','name','status','avatar','email'];
+    protected $fillable = ['id','name','status','avatar','email','deleted_at'];
 
     public static function findByPK($id)
     {
@@ -43,7 +43,14 @@ class Account extends Model
                 $data['avatar'] = $avatar;
             }
         }
-        dd($data);
         return self::find($id)->update($data);
+    }
+
+    public static function deleteAccount($id)
+    {
+        $getDataByID = self::find($id);
+        if(empty($getDataByID)) abort(404);
+
+        return $getDataByID->update(['deleted_at' => 1]);
     }
 }

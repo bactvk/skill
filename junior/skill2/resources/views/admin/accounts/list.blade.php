@@ -60,7 +60,9 @@
                         <table id="" class="table table-striped table-bordered" style="width:100%">
                           <thead>
                             <tr>
-                              <th>Name</th>
+                              <th class="table-sort
+                              
+                              " colName="id">Name</th>
                               <th>Email</th>
                               <th>Avatar</th>
                               <th>Status</th>
@@ -89,7 +91,7 @@
                               </td>
                               <td>  
                                   <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">Edit</a>
-                                  <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger">Delete</a>
+                                  <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">Delete</a>
                               </td>
                             </tr>
                             @endforeach
@@ -110,6 +112,9 @@
         </div>
 
       </div>
+      <form id="form_sort" method="post">
+        @csrf
+      </form>
   </div>   
   @if(Session::has('msg'))
   <div class="messageSuccess">

@@ -27,8 +27,12 @@
     <!-- bootstrap-daterangepicker -->
     <link href="assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+    {{-- jquery confirm --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     @yield('css')
   </head>
 
@@ -248,8 +252,10 @@
     <script src="assets/vendors/moment/min/moment.min.js"></script>
     <script src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     @yield('script')
   </body>
 </html>

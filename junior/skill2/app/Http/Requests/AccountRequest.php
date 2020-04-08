@@ -25,6 +25,7 @@ class AccountRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'avatar' => 'mimes:jpeg,png,jpg,gif,svg|max:1024'
         ];
     }
     public function messages()
@@ -33,7 +34,8 @@ class AccountRequest extends FormRequest
             'name.required' => 'Please input name',
             'email.required' => 'Plase input email',
             'email.email' => 'Plase input email valid',
-            'email.unique' => 'Email already exists , plase input other email'
+            'email.unique' => 'Email already exists , plase input other email',
+
         ];
     }
 }

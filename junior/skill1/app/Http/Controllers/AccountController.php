@@ -75,7 +75,7 @@ class AccountController extends Controller
             }
             $validator = Validator::make($request->all(),$rules,$messages);
             if(!$validator->fails()){
-                $update = Account::updateAccount($inputs,$id);
+                $update = Account::updateAccount($data['avatar'],$inputs,$id);
             }else{
                 $data['errorMsg'] = $this->_buildErrorMessages($validator);
             }

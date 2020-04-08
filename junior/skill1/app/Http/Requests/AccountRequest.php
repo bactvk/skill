@@ -25,6 +25,7 @@ class AccountRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'avatar' => 'image|mimes:png,jpeg,jpg,gif,svg|max:1024'
             
         ];
     }
