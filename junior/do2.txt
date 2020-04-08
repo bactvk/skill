@@ -1,8 +1,12 @@
 -create admin template
- + use datatables
+ + crud ( validate 2 type : request , recourse)
  + sort
- + email after signup successfuly
+ + 
  + csv , pdf
  + multip language
  + menu active
  + phpunit
+ + middware
+search
+
+email after signup successfuly

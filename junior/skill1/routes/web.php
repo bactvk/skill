@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['get','post'],'/','AccountController@index')->name('account');
+Route::match(['get','post'],'/add','AccountController@add')->name('account_add');
+Route::match(['get','post'],'/edit/{id}','AccountController@edit')->name('account_edit');
+Route::get('/delete/{id}','AccountController@delete')->name('account_delete');
+
+Route::get('/accounts/get-list-account','AccountController@getListAccounts')->name('getListAccounts');

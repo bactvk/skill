@@ -10,4 +10,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected function _buildErrorMessages($validator)
+    {
+    	$errors = $validator->errors()->all();
+
+    	return $errors;
+    }
 }
