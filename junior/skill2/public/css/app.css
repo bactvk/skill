@@ -6,10 +6,22 @@
 
 .table-sort{
 	cursor: pointer;
+	position: relative;
 }
 .table-sort:after{
 	content: "\2193";
+	position: absolute;
+	right: 10px;
 }
 .table-sort:before{
 	content: "\2191";
+	position: absolute;
+	right: 15px;
+}
+.sorting_desc:after{
+	position: 0.2;
+}
+
+.sorting_asc:before{
+	position: 0.2;
 }

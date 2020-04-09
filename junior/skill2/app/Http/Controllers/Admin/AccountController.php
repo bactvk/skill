@@ -33,6 +33,9 @@ class AccountController extends Controller
     		$messages = $accountRequest->messages();
 
     		$rules['email'] = 'required|email|unique:accounts,email';
+            if(!empty($data['avatar'])){
+                $rules['avatar'] = 'mimes:jpeg,png,jpg,gif,svg|max:1024';
+            }
     		$validator = Validator::make($request->all(),$rules,$messages);
     		if(!$validator->fails()){
     			$create = Account::createAccount($data);
@@ -64,9 +67,13 @@ class AccountController extends Controller
     		$rules = $accountRequest->rules();
     		$messages = $accountRequest->messages();
     		$rules['email'] = 'required|email';
+            
     		if($inputs['email'] != $data['email']){
     			$rules['email'] .= '|unique:accounts,email';
     		}
+            if(!empty($inputs['avatar'])){
+                $rules['avatar'] = 'mimes:jpeg,png,jpg,gif,svg|max:1024';
+            }
 
     		$validator = Validator::make($inputs,$rules,$messages);
     		if(!$validator->fails()){

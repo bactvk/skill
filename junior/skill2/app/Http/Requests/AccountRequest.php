@@ -25,7 +25,6 @@ class AccountRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'avatar' => 'mimes:jpeg,png,jpg,gif,svg|max:1024'
         ];
     }
     public function messages()
