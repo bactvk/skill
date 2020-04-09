@@ -61,7 +61,10 @@
                           <thead>
                             <tr>
                               <th class="table-sort
-                              
+                              @if(!empty($sort['id']))
+                                sorting_{{$sort['id']}}
+                              @else sorting
+                              @endif
                               " colName="id">Name</th>
                               <th>Email</th>
                               <th>Avatar</th>

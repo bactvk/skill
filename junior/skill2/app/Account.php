@@ -25,11 +25,19 @@ class Account extends Model
 
     	return self::insert($data);
     }
-    public static function getList()
+    public static function getList($inputs)
     {
-    	return self::where('deleted_at',0)
-                    -> latest()
-                    -> paginate(5);
+        $query = self::where('deleted_at',0);
+        if(!empty($inputs)){
+            foreach($inputs as $colSort => $typeSort){
+                $query->orderBy($colSort,$typeSort);
+            }
+        }else{
+            $query -> latest();
+        }
+        $lists = $query -> paginate(5);
+    	return $lists;
+            
     }
     public static function updateAccount($avatar,$data,$id)
     {

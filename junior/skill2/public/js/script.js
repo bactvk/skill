@@ -32,9 +32,17 @@ $(document).ready(function(){
 		var colSort = $(this).attr('colName');
 		var typeSort = 'asc';
 
+		if($(this).hasClass('sorting_asc') || $(this).hasClass('sorting') ){
+			typeSort = 'desc';
+		}else if($(this).hasClass('sorting_desc')){
+			typeSort = 'asc';
+		}
 		$('<input />').attr('type','hidden')
 					  .attr('name','sort['+ colSort +']')
-					  .attr('value',);
+					  .attr('value',typeSort)
+					  .appendTo(form);
+
+		form.submit();
 	})
 
 })

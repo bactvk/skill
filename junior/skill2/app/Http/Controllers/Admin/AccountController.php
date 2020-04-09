@@ -10,11 +10,11 @@ use App\Account;
 
 class AccountController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
-    	$lists = Account::getList();
-    	return view('admin.accounts.list',
-    		['lists' => $lists]);
+    	$inputs['sort'] = $request->input('sort');
+    	$inputs['lists'] = Account::getList($inputs['sort']);
+    	return view('admin.accounts.list',$inputs);
     }
 
     public function create(Request $request)

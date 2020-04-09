@@ -7,3 +7,9 @@
 .table-sort{
 	cursor: pointer;
 }
+.table-sort:after{
+	content: "\2193";
+}
+.table-sort:before{
+	content: "\2191";
+}
