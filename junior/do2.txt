@@ -1,12 +1,10 @@
 -create admin template
  + crud ( validate 2 type : request , recourse)
  + sort
- + 
- + csv , pdf
- + multip language
  + menu active
+ + multip language
+ + csv , pdf , print
  + phpunit
- + middware
-search
-
-email after signup successfuly
+ + middware , login , signup
+ + search
+ + email after signup successfuly
