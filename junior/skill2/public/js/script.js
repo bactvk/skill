@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 		$('<input />').attr('type','hidden')
 					  .attr('name','sort['+ colSort +']')
-					  .attr('value',)
+					  .attr('value',);
 	})
 
 })
