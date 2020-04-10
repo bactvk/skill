@@ -100,4 +100,5 @@ class AccountController extends Controller
         $lists = Account::getListAccounts($page);
         return response()->json($lists);
     }
+
 }

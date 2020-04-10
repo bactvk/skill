@@ -17,3 +17,5 @@ Route::match(['get','post'],'/edit/{id}','AccountController@edit')->name('accoun
 Route::get('/delete/{id}','AccountController@delete')->name('account_delete');
 
 Route::get('/accounts/get-list-account','AccountController@getListAccounts')->name('getListAccounts');
+
+Route::post('/language','LanguageController@changeLanguage')->name('changeLanguage');

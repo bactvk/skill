@@ -2,6 +2,12 @@
 @section('content')
 <div class="container">
     <div class="row">
+    	<div>
+    		<select class="form-control" id = "language_switch">
+    			<option value="en" {{ (config('app.locale') == "en")?"selected":""}}>English</option>
+    			<option value="vn" {{ (config('app.locale') == "vn")?"selected":""}}>Vietnamese</option>
+    		</select>
+    	</div>
 		<div class="col-lg-12 mt-4 mb-4">
 			<div class="pull-left">
 				<h2>Add New Product</h2>

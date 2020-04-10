@@ -151,7 +151,7 @@
                   </div>
                 </li>
 
-                <li role="presentation" class="nav-item dropdown open">
+                {{-- <li role="presentation" class="nav-item dropdown open">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
@@ -191,6 +191,12 @@
                       </div>
                     </li>
                   </ul>
+                </li> --}}
+                <li>
+                  <select class="form-control">
+                    <option value="en">English</option>
+                    <option value="vn">Vietnamese</option>
+                  </select>
                 </li>
               </ul>
             </nav>

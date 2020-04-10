@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<strong>Name: <span class="text-danger">*</span></strong>
+					<strong>{{trans('app.name')}}: <span class="text-danger">*</span></strong>
 					<input type="text" name="name" class="form-control" placeholder="Name" value="{{$name}}">
 				</div>
 			</div>
@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<strong>Email: <span class="text-danger">*</span></strong>
+					<strong>{{trans('app.email')}}: <span class="text-danger">*</span></strong>
 					<input value="{{$email}}" type="text" name="email" class="form-control" placeholder="email@gmail.com">
 				</div>
 			</div>
@@ -22,7 +22,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<strong>Avatar:</strong><br>
+					<strong>{{trans('app.avatar')}}:</strong><br>
 					<input type="file" name="avatar" >
 					@if(!empty($avatar)) <img src="{{asset('assets/image/avatar/'.$avatar)}}" width="50" height="50"> @endif
 				</div>
@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
-					<strong>Status</strong>
+					<strong>{{trans('app.status')}}</strong>
 					<select class="form-control" name="status">
 						<option value="1" @if($status == 1) selected @endif >active</option>
 						<option value="0" @if($status == 0) selected @endif >inactive</option>
