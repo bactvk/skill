@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AccountRequest;
 use Validator;
 use App\Account;
+use Response;
+use PDF;
 
 class AccountController extends Controller
 {
@@ -92,5 +94,55 @@ class AccountController extends Controller
     {
         $deleteSuccess = Account::deleteAccount($id);
         if($deleteSuccess) return redirect()->route('admin-accounts-list')->with('msg','Delete successfuly');
+    }
+
+    public function export()
+    {
+        $fileName = "List_account_".date('Y-m-d');
+        $headers = array(
+            "Content-type"          => "text/csv;charset=UTF-8",
+            'Content-Encoding: UTF-8',
+            "Content-Disposition"   => "attachment; filename=$fileName.csv",
+            "Pragma"                => "no-cache",
+            "Cache-Control"         => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"               => "0"
+        );
+        $dataExport = Account::getAllList();
+        if( count($dataExport) != 0){
+            $columns = ['ID','Name' , 'Email' , 'Status'];
+
+            $callback = function() use ($dataExport,$columns){
+                $file = fopen('php://output','w');
+                fputcsv($file,$columns);
+                foreach($dataExport as $item){
+                    if($item->status == 1) $status = "active";
+                    else $status = "inactive";
+                    $rows = [
+                        $item->id,
+                        $item->name,
+                        $item->email,
+                        $status,
+                    ];
+                    fputcsv($file,$rows);
+                }
+                fclose($file);
+            };
+            return Response::stream($callback, 200 ,$headers);
+        }else{
+            return redirect()->route('admin-accounts-list')->with('msgError','No result to export');
+        }
+    }
+
+    public function printPdf()
+    {
+        $data = Account::getAllList();
+        if(count($data) != 0){
+            $pdf = PDF::loadView('admin.accounts.pdf',['data' => $data]);
+            $fileName = "listAccount_".date("Ymd").".pdf";
+            return $pdf->download($fileName);
+        }else{
+            return redirect()->route('admin-accounts-list')->with('msgError','No result to print');
+        }
+        
     }
 }

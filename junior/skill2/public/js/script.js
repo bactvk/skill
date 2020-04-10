@@ -61,4 +61,9 @@ $(document).ready(function(){
 			}
 		})
 	})
+	//print
+	$('#print_listAccount').click(function(e){
+		e.preventDefault();
+		window.print();
+	})
 })

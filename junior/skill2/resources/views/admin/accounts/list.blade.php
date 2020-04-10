@@ -49,15 +49,15 @@
             </div>
             <div class="x_content">
                 <div class="row">
-                  <p class="col-md-1"> <a href="">CSV </a> </p>
-                  <p class="col-md-1"> <a href="">PDF </a> </p>
-                  <p class="col-md-1"> <a href="">PRINT </a> </p>
+                  <p class="col-md-1"> <a href="{{route('admin-accounts-export')}}">CSV </a> </p>
+                  <p class="col-md-1"> <a href="{{route('print-pdf')}}">PDF </a> </p>
+                  <p class="col-md-1"> <a href="#" id="print_listAccount">PRINT </a> </p>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
               
-                        <table id="" class="table table-striped table-bordered" style="width:100%">
+                        <table id="table_list_account" class="table table-striped table-bordered" style="width:100%">
                           <thead>
                             <tr>
                               <th class="table-sort
@@ -123,6 +123,14 @@
   <div class="messageSuccess">
     <div class="col-md-4 alert alert-success text-center" style="position: fixed;right: 25%; top: 7%;font-size: 18px">
         {{Session::get('msg')}}
+    </div>
+  </div>
+  @endif
+
+  @if(Session::has('msgError'))
+  <div class="messageSuccess">
+    <div class="col-md-4 alert alert-danger text-center" style="position: fixed;right: 25%; top: 7%;font-size: 18px">
+        {{Session::get('msgError')}}
     </div>
   </div>
   @endif

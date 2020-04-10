@@ -25,7 +25,7 @@ class Account extends Model
 
     	return self::insert($data);
     }
-    public static function getList($inputs)
+    public static function getList($inputs = [])
     {
         $query = self::where('deleted_at',0);
         if(!empty($inputs)){
@@ -38,6 +38,10 @@ class Account extends Model
         $lists = $query -> paginate(5);
     	return $lists;
             
+    }
+    public static function getAllList()
+    {
+        return self::where('deleted_at',0)->get();
     }
     public static function updateAccount($avatar,$data,$id)
     {

@@ -21,6 +21,7 @@
 		'edit' 			=> 'Edit',
 		'delete' 		=> 'Delete',
 		'active' 		=> 'Active',
+		'inactive' 		=> 'Inactive',
 		'list' 			=> 'List',
 	];
 

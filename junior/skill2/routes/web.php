@@ -19,8 +19,12 @@ Route::group([
 	Route::match(['get','post'],'/edit/{id}','Admin\AccountController@edit')->name('admin-accounts-edit');
 	Route::get('/delete/{id}','Admin\AccountController@delete')->name('admin-accounts-delete');
 
+	Route::get('/export','Admin\AccountController@export')->name('admin-accounts-export');
+	Route::get('/printPdf','Admin\AccountController@printPdf')->name('print-pdf');
+
 });
 
 Route::get('/','Admin\HomeController@home')->name('admin-home');
 Route::post('/language','LanguageController@changeLanguage');
 
+Route::match(['get','post'],'/login','Admin\LoginController@login')->name('admin-login');
