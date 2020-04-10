@@ -22,4 +22,5 @@ Route::group([
 });
 
 Route::get('/','Admin\HomeController@home')->name('admin-home');
+Route::post('/language','LanguageController@changeLanguage');
 

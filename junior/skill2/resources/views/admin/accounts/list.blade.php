@@ -6,14 +6,14 @@
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>Account</small></h3>
+            <h3>{{trans('app.account')}}</small></h3>
           </div>
 
           <div class="title_right">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="">Home</a></li>
-                <li class="breadcrumb-item ">Account</li>
-                <li class="breadcrumb-item active">Lists</li>
+                <li class="breadcrumb-item"><a href="">{{trans('app.home')}}</a></li>
+                <li class="breadcrumb-item ">{{trans('app.account')}}</li>
+                <li class="breadcrumb-item active">{{trans('app.list')}}</li>
               </ol>
           </div>
 
@@ -21,7 +21,7 @@
         <div>
           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" class="form-control" placeholder="{{trans('app.search_for')}}...">
                 <span class="input-group-btn">
                   <button class="btn btn-secondary" type="button">Go!</button>
                 </span>
@@ -34,11 +34,11 @@
         <div class="col-md-12 col-sm-12 ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>List <small>Accounts</small></h2>
+              <h2>{{trans('app.list')}} <small>{{trans('app.account')}}</small></h2>
               
               <ul class="nav navbar-right panel_toolbox">
                 <div class="">
-                  <a href="{{route('admin-accounts-create')}}" class="btn btn-success">Create <i class="fa fa-plus"></i> </a>
+                  <a href="{{route('admin-accounts-create')}}" class="btn btn-success">{{trans('app.create')}} <i class="fa fa-plus"></i> </a>
                 </div>
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -65,11 +65,11 @@
                                 sorting_{{$sort['id']}}
                               @else sorting
                               @endif
-                              " colName="id">Name</th>
-                              <th>Email</th>
-                              <th>Avatar</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              " colName="id">{{trans('app.name')}}</th>
+                              <th>{{trans('app.email')}}</th>
+                              <th>{{trans('app.avatar')}}</th>
+                              <th>{{trans('app.status')}}</th>
+                              <th>{{trans('app.action')}}</th>
                             </tr>
                           </thead>
 
@@ -87,14 +87,14 @@
                               </td>
                               <td>
                                 @if($item->status == 1)
-                                  <span class="btn btn-success">Active</span>
+                                  <span class="btn btn-success">{{trans('app.active')}}</span>
                                 @else
-                                  <span class="btn btn-light">Inactive</span>
+                                  <span class="btn btn-light">{{trans('app.inactive')}}</span>
                                 @endif
                               </td>
                               <td>  
-                                  <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">Edit</a>
-                                  <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">Delete</a>
+                                  <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">{{trans('app.edit')}}</a>
+                                  <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
                               </td>
                             </tr>
                             @endforeach

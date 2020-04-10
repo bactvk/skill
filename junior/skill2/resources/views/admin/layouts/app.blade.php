@@ -42,7 +42,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Kmt Hcmute</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -53,7 +53,7 @@
                 <img src="assets/img/logo.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>{{trans('app.welcome')}},</span>
                 <h2>Admin</h2>
               </div>
             </div>
@@ -64,20 +64,20 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>{{trans('app.general')}}</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> {{trans('app.home')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('admin-home')}}">Dashboard</a></li>
+                      <li><a href="{{route('admin-home')}}">{{trans('app.dashboard')}}</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Accounts <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> {{trans('app.account')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('admin-accounts-list')}}">Lists account</a></li>
+                      <li><a href="{{route('admin-accounts-list')}}">{{trans('app.list')}} {{trans('app.account')}}</a></li>
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> {{trans('app.table')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
                       <li><a href="tables_dynamic.html">Table Dynamic</a></li>
@@ -88,10 +88,10 @@
                 </ul>
               </div>
               <div class="menu_section">
-                <h3>Live On</h3>
+                <h3>{{trans('app.live_on')}}</h3>
                 <ul class="nav side-menu">
                   
-                  <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-windows"></i> {{trans('app.extras')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="page_403.html">403 Error</a></li>
                       <li><a href="page_404.html">404 Error</a></li>
@@ -138,7 +138,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/img/logo.jpg" alt="">John Doe
+                    <img src="assets/img/logo.jpg" alt="">Admin
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -147,7 +147,7 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href=""><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
 
@@ -193,9 +193,10 @@
                   </ul>
                 </li> --}}
                 <li>
-                  <select class="form-control">
-                    <option value="en">English</option>
-                    <option value="vn">Vietnamese</option>
+                  <select class="form-control" id="switch_language">
+                    <option value="en" {{ (config('app.locale') == "en")?"selected":"" }}>English</option>
+                    <option value="vi" {{ (config('app.locale') == "vi")?"selected":"" }}>Vietnamese</option>
+                    <option value="ja" {{ (config('app.locale') == "ja")?"selected":"" }}>Japanese</option>
                   </select>
                 </li>
               </ul>
