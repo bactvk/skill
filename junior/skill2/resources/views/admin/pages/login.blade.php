@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <base href="{{asset('')}}">
     <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
@@ -34,12 +34,15 @@
               @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" name="email" />
+                <input type="text" class="form-control" placeholder="userName" name="userName" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" name="password" />
+                <input type="password" class="form-control" placeholder="password" name="password" />
               </div>
               <div>
+                @if(!empty($error))
+                  <div class="alert alert-danger">{{$error}}</div>
+                @endif
                 <input class="btn btn-primary" type="submit" name="" value="Log in">
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
