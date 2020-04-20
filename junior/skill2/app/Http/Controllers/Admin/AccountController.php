@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AccountRequest;
 use Validator;
 use App\Account;
+use App\MailTemplate;
 use Response;
 use PDF;
 
@@ -42,6 +43,15 @@ class AccountController extends Controller
     		if(!$validator->fails()){
     			$create = Account::createAccount($data);
     			if($create) $createSuccess = true;
+
+                //send Mail
+                $condition = [
+                    'email' => $data['email'],
+                    'username' => str_random(5),
+                    'password' => str_random(5),
+                ];
+                MailTemplate::sendMail($condition);
+
     		}else{
     			$data['ErrMsg'] = $this->_buildErrorMessages($validator);
     		}
