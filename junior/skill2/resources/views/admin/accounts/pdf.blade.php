@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Printf pdf</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
 	<style>
+		
+		body{
+			font-family: DejaVu Sans;
+		}
 		#customers {
-		  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		  
 		  border-collapse: collapse;
 		  width: 100%;
 		}
@@ -21,7 +30,7 @@
 		  padding-top: 12px;
 		  padding-bottom: 12px;
 		  text-align: left;
-		  background-color: #4CAF50;
+		  background-color: orange;
 		  color: white;
 		}
 	</style>

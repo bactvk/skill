@@ -32,7 +32,7 @@
 
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+    {{-- <link rel="stylesheet" type="text/css" href="css/app.css"> --}}
     @yield('css')
   </head>
 
