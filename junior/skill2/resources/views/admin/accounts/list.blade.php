@@ -60,6 +60,7 @@
                         <table id="table_list_account" class="table table-striped table-bordered" style="width:100%">
                           <thead>
                             <tr>
+                              <th></th>
                               <th class="table-sort
                               @if(!empty($sort['id']))
                                 sorting_{{$sort['id']}}
@@ -75,8 +76,9 @@
 
 
                           <tbody>
-                            @foreach($lists as $item)
+                            @foreach($lists as $key => $item)
                             <tr>
+                              <td>{{ $lists->firstItem() + $key }}</td>
                               <td>{{$item->name}}</td>
                               <td>{{$item->email}}</td>
                               <td>

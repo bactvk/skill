@@ -8,7 +8,7 @@ use Auth;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)  //admin123
+    public function login(Request $request) 
     {
     	if($request->isMethod('post')){
     		$username = $request->userName;
