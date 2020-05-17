@@ -20,6 +20,7 @@ class Account extends Model
     		$file = $data['avatar'];
     		$fileName = $file->getClientOriginalName();
     		$file->move(self::PATH_IMG,$fileName);
+            // $file->store('public/account');
     		$data['avatar'] = $fileName; // save on db
     	}
 

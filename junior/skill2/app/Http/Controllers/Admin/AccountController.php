@@ -63,7 +63,7 @@ class AccountController extends Controller
 
     public function edit(Request $request,$pk)
     {
-    	$data = Account::findByPK($pk);
+    	$data = Account::findByPK($pk); // hoho
     	$update = false;
     	if(empty($data)) abort(404);
 

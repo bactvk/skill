@@ -50,7 +50,8 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="assets/img/logo.jpg" alt="..." class="img-circle profile_img">
+                {{-- <img src="assets/img/logo.jpg" alt="..." class="img-circle profile_img"> --}}
+                <img src="{{asset('storage/account/logo.jpg')}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>{{trans('app.welcome')}},</span>
