@@ -52,11 +52,11 @@
                   <p class="col-md-1"> <a href="{{route('admin-accounts-export')}}">CSV </a> </p>
                   <p class="col-md-1"> <a href="{{route('print-pdf')}}">PDF </a> </p>
                   <p class="col-md-1"> <a href="#" id="print_listAccount">PRINT </a> </p>
+
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
-              
                         <table id="table_list_account" class="table table-striped table-bordered" style="width:100%">
                           <thead>
                             <tr>

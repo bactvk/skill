@@ -64,6 +64,27 @@ $(document).ready(function(){
 	//print
 	$('#print_listAccount').click(function(e){
 		e.preventDefault();
-		window.print();
+
+	    // printContent("table_list_account");
+	    // display the hidden table rows
+		  var style = "<style>.table_list_account {display: table-row !important; } .pagebreak { display: block; page-break-after: always; }</style>";
+
+		  window.document.body.innerHTML = style + $("#table_list_account")[0].outerHTML;
+		  window.print();
+		  location.reload();
 	})
+
+	//print a div
+	function printContent(el){
+		var style = "<style>.el {display: table-row !important; }</style>";
+
+	    var restorepage  = $('body').html();
+	    var printcontent = $('#' + el).clone();
+	    $('body').empty().html(printcontent);
+	    window.print();
+	    window.close();
+	    $('body').html(restorepage);
+	    location.reload();
+	}
+
 })
