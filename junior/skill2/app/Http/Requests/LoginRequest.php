@@ -32,7 +32,7 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'userName.required' => 'Please input userName',
+            'username.required' => 'Please input userName',
             'password.required' => 'Please input password',
             'captcha.required'  => 'Please input captcha',
             'captcha.captcha' => 'invalid captcha',

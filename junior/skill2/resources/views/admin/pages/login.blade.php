@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="{{asset('')}}">
-    <title>Gentelella Alela! | </title>
+    <title>Manager system - Kmt</title>
 
     <!-- Bootstrap -->
     <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,10 +42,10 @@
               @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="userName" name="username" value="{{$username}}" />
+                <input type="text" class="form-control" placeholder="userName *" name="username" value="{{$username}}" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="password" name="password" />
+                <input type="password" class="form-control" placeholder="password *" name="password" />
               </div>
               {{-- capcha --}}
               <div>
@@ -53,7 +53,7 @@
                   <span class="capcha_img">{!! captcha_img('math') !!}</span>
                   <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
                 </div>
-                <input id="captcha" type="text" class="form-control" placeholder="Enter result captcha" name="captcha">
+                <input id="captcha" type="text" class="form-control" placeholder="Enter result captcha *" name="captcha">
               </div>
 
               <div>
@@ -120,7 +120,7 @@
 
                 <div>
                   <h1><i class="fa fa-paw"></i> Kmt Hcmute!</h1>
-                  <p>©2020 All Rights Reserved. Kmt Hcmute! . Privacy and Terms</p>
+                  <p>©{{date("Y")}} All Rights Reserved. Kmt Hcmute! . Privacy and Terms</p>
                 </div>
               </div>
             </form>

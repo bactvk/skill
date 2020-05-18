@@ -41,9 +41,6 @@ class AccountController extends Controller
             }
     		$validator = Validator::make($request->all(),$rules,$messages);
     		if(!$validator->fails()){
-    			$create = Account::createAccount($data);
-    			if($create) $createSuccess = true;
-
                 //send Mail
                 $condition = [
                     'email' => $data['email'],
@@ -51,6 +48,8 @@ class AccountController extends Controller
                     'password' => str_random(5),
                 ];
                 MailTemplate::sendMail($condition);
+                $create = Account::createAccount($data);
+                if($create) $createSuccess = true;
 
     		}else{
     			$data['ErrMsg'] = $this->_buildErrorMessages($validator);

@@ -43,7 +43,7 @@ $(document).ready(function(){
 					  .appendTo(form);
 
 		form.submit();
-	})
+	});
 
 	$('#switch_language').change(function(){
 		var locale = $(this).val();
@@ -65,13 +65,11 @@ $(document).ready(function(){
 	$('#print_listAccount').click(function(e){
 		e.preventDefault();
 
-	    // printContent("table_list_account");
-		  
-		  $(".action").children().hide();
+		$(".action").children().hide();
 
-		  url = $(this).data('url');
+		url = $(this).data('url');
 
-		  $.ajax({
+		$.ajax({
 		  	url : url,
 		  	type:'GET',
 			success: function success(data){
@@ -107,22 +105,9 @@ $(document).ready(function(){
 				  location.reload();
 			}
 
-		  });
+		});
+  
+	});
 
-		  
-	})
-
-	//print a div
-	function printContent(el){
-		
-
-	    var restorepage  = $('body').html();
-	    var printcontent = $('#' + el).clone();
-	    $('body').empty().html(printcontent);
-	    window.print();
-	    window.close();
-	    $('body').html(restorepage);
-	    location.reload();
-	}
 
 })

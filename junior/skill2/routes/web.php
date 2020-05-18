@@ -52,5 +52,5 @@ Route::group([
 });
 
 Route::post('/language','LanguageController@changeLanguage');
-Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
+// Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
 
