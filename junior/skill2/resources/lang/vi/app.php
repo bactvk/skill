@@ -24,7 +24,8 @@
 		'list' 			=> 'Danh sách',
 		'manage' 	=> 'Quản lí', 
 		'cancel' 		=> 'Hủy',
-		'save' 			=> 'Lưu'
+		'save' 			=> 'Lưu',
+		'message'  		=> 'Thông báo',
 	];
 
 ?>

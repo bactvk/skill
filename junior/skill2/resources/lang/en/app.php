@@ -25,7 +25,8 @@
 		'inactive' 		=> 'Inactive',
 		'list' 			=> 'List',
 		'cancel' 		=> 'Cancel',
-		'save' 			=> 'Save' 
+		'save' 			=> 'Save',
+		'message'  		=> 'Message',
 	];
 
 ?>

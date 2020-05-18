@@ -79,10 +79,10 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-table"></i> {{trans('app.table')}} <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> {{trans('app.message')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Tables</a></li>
-                      <li><a href="#">Table Dynamic</a></li>
+                      <li><a href="#">Inbox</a></li>
+                      <li><a href="#">Sent</a></li>
                     </ul>
                   </li>
                   
