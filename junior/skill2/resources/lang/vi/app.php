@@ -22,6 +22,9 @@
 		'active' 		=> 'Hoạt động',
 		'inactive'      => 'Không hoạt động', 
 		'list' 			=> 'Danh sách',
+		'manage' 	=> 'Quản lí', 
+		'cancel' 		=> 'Hủy',
+		'save' 			=> 'Lưu'
 	];
 
 ?>

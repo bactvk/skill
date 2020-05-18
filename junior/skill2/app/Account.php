@@ -42,7 +42,7 @@ class Account extends Model
     }
     public static function getAllList()
     {
-        return self::where('deleted_at',0)->get();
+        return self::where('deleted_at',0)->latest()->get();
     }
     public static function updateAccount($avatar,$data,$id)
     {

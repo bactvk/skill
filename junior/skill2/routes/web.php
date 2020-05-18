@@ -33,6 +33,9 @@ Route::group([
 			Route::get('/export','Admin\AccountController@export')->name('admin-accounts-export');
 			Route::get('/printPdf','Admin\AccountController@printPdf')->name('print-pdf');
 
+			Route::get('/getAllAccount','Admin\AccountController@getAll')->name('get-all-account');
+
+
 		});
 
 

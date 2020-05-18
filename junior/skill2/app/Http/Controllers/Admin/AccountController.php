@@ -155,4 +155,8 @@ class AccountController extends Controller
         }
         
     }
+    public function getAll()
+    {
+        return Account::getAllList();
+    }
 }

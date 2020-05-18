@@ -10,6 +10,7 @@
 		'table' 	=> 'Table',
 		'live_on' 	=> 'Live on',
 		'extras' 	=> 'Extras',
+		'manage' 	=> 'Manage', 
 
 		'search_for' 	=> 'Search for',
 		'create' 		=> 'Create',
@@ -23,6 +24,8 @@
 		'active' 		=> 'Active',
 		'inactive' 		=> 'Inactive',
 		'list' 			=> 'List',
+		'cancel' 		=> 'Cancel',
+		'save' 			=> 'Save' 
 	];
 
 ?>

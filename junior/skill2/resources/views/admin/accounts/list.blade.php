@@ -51,7 +51,7 @@
                 <div class="row">
                   <p class="col-md-1"> <a href="{{route('admin-accounts-export')}}">CSV </a> </p>
                   <p class="col-md-1"> <a href="{{route('print-pdf')}}">PDF </a> </p>
-                  <p class="col-md-1"> <a href="#" id="print_listAccount">PRINT </a> </p>
+                  <p class="col-md-1"> <a href="#" id="print_listAccount" data-url={{route('get-all-account')}}>PRINT </a> </p>
 
                 </div>
                 <div class="row">
@@ -75,7 +75,7 @@
                           </thead>
 
 
-                          <tbody>
+                          <tbody id="listRowAccount">
                             @foreach($lists as $key => $item)
                             <tr>
                               <td>{{ $lists->firstItem() + $key }}</td>
@@ -94,7 +94,7 @@
                                   <span class="btn btn-light">{{trans('app.inactive')}}</span>
                                 @endif
                               </td>
-                              <td>  
+                              <td class ="action">  
                                   <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">{{trans('app.edit')}}</a>
                                   <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
                               </td>

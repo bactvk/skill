@@ -66,17 +66,55 @@ $(document).ready(function(){
 		e.preventDefault();
 
 	    // printContent("table_list_account");
-	    // display the hidden table rows
-		  var style = "<style>.table_list_account {display: table-row !important; } .pagebreak { display: block; page-break-after: always; }</style>";
+		  
+		  $(".action").children().hide();
 
-		  window.document.body.innerHTML = style + $("#table_list_account")[0].outerHTML;
-		  window.print();
-		  location.reload();
+		  url = $(this).data('url');
+
+		  $.ajax({
+		  	url : url,
+		  	type:'GET',
+			success: function success(data){
+				var html = '';
+				var status = '';
+				var image = '';
+
+				for(var item in data){
+					//STATUS
+					if(data[item]['status'] == 1)
+                      status = "<span class='btn btn-success'>Active</span>";
+                    else
+                      status = "<span class='btn btn-light'>Inactive</span>";
+                   	// AVATAR
+                   	if(data[item]['avatar'])
+                        image  = "<img src='assets/img/avatar/"+data[item]['avatar']+"' width='50' height='50'>";
+                    else image = '';
+
+					html += '<tr>'+
+					  '<td>' + (Number(item)+1) + '</td>'+
+		              '<td>' + data[item]['name'] + '</td>'+
+		              '<td>' + data[item]['email'] + '</td>'+
+		              '<td>'+ image + '</td>'+
+		              '<td>' + status +'</td>'+
+		              '<td>' + '</td>'+
+		            '</tr>';
+				}
+
+				$("#listRowAccount").html(html);
+
+				window.document.body.innerHTML = $("#table_list_account")[0].outerHTML;
+				  window.print();
+				  location.reload();
+			}
+
+		  });
+
+		  
 	})
 
 	//print a div
 	function printContent(el){
-		var style = "<style>.el {display: table-row !important; }</style>";
+		
 
 	    var restorepage  = $('body').html();
 	    var printcontent = $('#' + el).clone();
