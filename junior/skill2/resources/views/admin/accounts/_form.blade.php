@@ -17,10 +17,10 @@
   <div class="item form-group">
     <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">{{trans('app.avatar')}}</label>
     <div class="col-md-6 col-sm-6 ">
-      <button style="position: absolute;width: 100px;z-index: 10"  type="button" onclick="document.getElementById('getFile').click()">bo vao day</button>
-      <label style="position: absolute;left: 20%;top: 8%">chua co file</label>
-      <input style="display: none"  id="getFile" type="file" name="avatar"> @if($avatar) {{$avatar}} @endif
-
+      {{-- <button style="position: absolute;width: 100px;z-index: 10"  type="button" onclick="document.getElementById('getFile').click()">bo vao day</button> --}}
+      {{-- <label style="position: absolute;left: 20%;top: 8%">chua co file</label>
+      <input style="display: none"  id="getFile" type="file" name="avatar"> @if($avatar) {{$avatar}} @endif --}}
+      <input type="file" name="avatar"> @if($avatar) {{$avatar}} @endif
     </div>
   </div>
   <div class="item form-group">

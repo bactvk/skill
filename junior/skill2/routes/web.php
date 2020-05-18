@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/',function(){
+	return redirect()->route('admin-home');
+});
+
 Route::group([
 	'prefix' => 'admin'
 ], function(){
@@ -47,8 +51,6 @@ Route::group([
 
 });
 
-
-
 Route::post('/language','LanguageController@changeLanguage');
-
+Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
 

@@ -11,4 +11,8 @@ class HomeController extends Controller
 		return view('admin.pages.home');
 	}
     
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img('math')]);
+    }
 }

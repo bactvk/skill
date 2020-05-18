@@ -20,6 +20,14 @@
 
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
+    <style type="text/css">
+      .capcha_img img{
+        width: 200px;
+      }
+      .captcha{
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
 
   <body class="login">
@@ -34,15 +42,29 @@
               @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="userName" name="userName" />
+                <input type="text" class="form-control" placeholder="userName" name="username" value="{{$username}}" />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="password" name="password" />
               </div>
+              {{-- capcha --}}
               <div>
-                @if(!empty($error))
-                  <div class="alert alert-danger">{{$error}}</div>
+                <div class="captcha">
+                  <span class="capcha_img">{!! captcha_img('math') !!}</span>
+                  <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
+                </div>
+                <input id="captcha" type="text" class="form-control" placeholder="Enter result captcha" name="captcha">
+              </div>
+
+              <div>
+                @if(!empty($ErrMsg))
+                  <div class="alert alert-danger text-left">
+                    @foreach($ErrMsg as $err)
+                      <li>{{$err}}</li>
+                    @endforeach
+                  </div>
                 @endif
+
                 <input class="btn btn-primary" type="submit" name="" value="Log in">
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
@@ -73,12 +95,15 @@
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
               </div>
+              {{-- email --}}
               <div>
                 <input type="email" class="form-control" placeholder="Email" required="" />
               </div>
+              {{-- pass --}}
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
+        
               <div>
                 <a class="btn btn-primary submit" href="index.html">Submit</a>
               </div>
@@ -103,5 +128,21 @@
         </div>
       </div>
     </div>
+
+    <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      $(".btn-refresh").click(function(){
+
+        $.ajax({
+           type:'GET',
+           url:'/refresh_captcha',
+           success:function(data){
+              $(".captcha span").html(data.captcha);
+           }
+        });
+
+      });
+    </script>
   </body>
 </html>
