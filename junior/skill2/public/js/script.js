@@ -47,7 +47,8 @@ $(document).ready(function(){
 
 	$('#switch_language').change(function(){
 		var locale = $(this).val();
-		var _token = $("input[name=_token]").val();
+		// var _token = $("input[name=_token]").val();
+		var _token = $('meta[name="csrf-token"]').attr('content')
 		$.ajax({
 			url : '/language',
 			type : 'POST',

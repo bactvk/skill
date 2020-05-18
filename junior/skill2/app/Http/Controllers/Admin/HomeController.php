@@ -13,6 +13,6 @@ class HomeController extends Controller
     
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img('math')]);
+        return response()->json(['captcha'=> captcha_img('flat')]);
     }
 }

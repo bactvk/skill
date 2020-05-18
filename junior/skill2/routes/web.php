@@ -19,6 +19,9 @@ Route::group([
 	'prefix' => 'admin'
 ], function(){
 
+	Route::match(['get','post'],'/login','Admin\LoginController@login')->name('admin-login');
+	Route::get('/logout','Admin\LoginController@logout')->name('admin-logout');
+
 	Route::group([
 		'middleware' => 'auth.admin'
 	],function(){
@@ -39,18 +42,23 @@ Route::group([
 
 			Route::get('/getAllAccount','Admin\AccountController@getAll')->name('get-all-account');
 
-
 		});
 
+		// Message
+		Route::group([
+			'prefix' => 'messages'
+		],function(){
+			Route::match(['get','post'],'/create','Admin\MessageController@create')->name('admin-messages-create');
+		});
 
 	});
 
-	Route::match(['get','post'],'/login','Admin\LoginController@login')->name('admin-login');
-	Route::get('/logout','Admin\LoginController@logout')->name('admin-logout');
+	
+
 
 
 });
 
 Route::post('/language','LanguageController@changeLanguage');
-// Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
+Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
 

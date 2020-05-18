@@ -50,10 +50,10 @@
               {{-- capcha --}}
               <div>
                 <div class="captcha">
-                  <span class="capcha_img">{!! captcha_img('math') !!}</span>
+                  <span class="capcha_img">{!! captcha_img('flat') !!}</span>
                   <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
                 </div>
-                <input id="captcha" type="text" class="form-control" placeholder="Enter result captcha *" name="captcha">
+                <input id="captcha" type="text" class="form-control" placeholder="Enter captcha *" name="captcha">
               </div>
 
               <div>

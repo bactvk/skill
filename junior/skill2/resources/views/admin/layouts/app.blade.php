@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
     <base href="{{asset('')}}">
 
@@ -81,6 +83,7 @@
 
                   <li><a><i class="fa fa-table"></i> {{trans('app.message')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="{{route('admin-messages-create')}}">New</a></li>
                       <li><a href="#">Inbox</a></li>
                       <li><a href="#">Sent</a></li>
                     </ul>
@@ -153,7 +156,17 @@
                   </div>
                 </li>
 
-                {{-- <li role="presentation" class="nav-item dropdown open">
+                
+
+                <li>
+                  <select class="form-control" id="switch_language">
+                    <option value="en" {{ (config('app.locale') == "en")?"selected":"" }}>English</option>
+                    <option value="vi" {{ (config('app.locale') == "vi")?"selected":"" }}>Vietnamese</option>
+                    <option value="ja" {{ (config('app.locale') == "ja")?"selected":"" }}>Japanese</option>
+                  </select>
+                </li>
+
+                <li role="presentation" class="nav-item dropdown open col-1">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
@@ -193,14 +206,8 @@
                       </div>
                     </li>
                   </ul>
-                </li> --}}
-                <li>
-                  <select class="form-control" id="switch_language">
-                    <option value="en" {{ (config('app.locale') == "en")?"selected":"" }}>English</option>
-                    <option value="vi" {{ (config('app.locale') == "vi")?"selected":"" }}>Vietnamese</option>
-                    <option value="ja" {{ (config('app.locale') == "ja")?"selected":"" }}>Japanese</option>
-                  </select>
                 </li>
+
               </ul>
             </nav>
           </div>
