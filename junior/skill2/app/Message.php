@@ -16,7 +16,7 @@ class Message extends Model
         }else{
             $query -> orderBy('messages.created_at','desc');
         }
-        $lists = $query->leftJoin("accounts","accounts.id","=","messages.receiver")->paginate(20);
+        $lists = $query->leftJoin("accounts","accounts.id","=","messages.receiver")->select("messages.id as messages_id","receiver","subject","content","name","messages.created_at")->paginate(20);
         // $lists = $query->paginate(20);
     	return $lists;
             
@@ -33,5 +33,8 @@ class Message extends Model
         return  $this->belongsTo(Account::class,'receiver','id')->first();
         
     }
-    
+    public static function findByPK($id)
+    {
+        return self::find($id);
+    }
 }

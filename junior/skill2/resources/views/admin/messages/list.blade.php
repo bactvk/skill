@@ -78,8 +78,8 @@
                                 @endif
                               </td>
                               <td class ="action">  
-                                  <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">{{trans('app.edit')}}</a>
-                                  <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
+                                  <a href="{{route('admin-messages-view',$item->messages_id)}}" class="btn btn-primary">View</a>
+                                  <a href="{{route('admin-messages-delete',$item->messages_id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
                               </td>
                             </tr>
                             @endforeach

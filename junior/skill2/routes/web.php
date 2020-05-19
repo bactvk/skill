@@ -50,6 +50,8 @@ Route::group([
 		],function(){
 			Route::match(['get','post'],'/list','Admin\MessageController@list')->name('admin-messages-list');
 			Route::match(['get','post'],'/create','Admin\MessageController@create')->name('admin-messages-create');
+			Route::get('/view/{id}','Admin\MessageController@view')->name('admin-messages-view');
+			Route::get('/delete/{id}','Admin\MessageController@delete')->name('admin-messages-delete');
 		});
 
 	});

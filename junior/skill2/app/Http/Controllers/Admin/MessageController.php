@@ -15,12 +15,12 @@ class MessageController extends Controller
 
 		$time_start = microtime(true); 
 		$data['lists'] = Message::getList();
-		foreach($data['lists'] as $key => $item){
-			var_dump($item->name );
-		}
-		$time_end = microtime(true);
-		$execution_time = ($time_end - $time_start)/60;
-		dd($execution_time);
+		// foreach($data['lists'] as $key => $item){
+		// 	var_dump($item->name );
+		// }
+		// $time_end = microtime(true);
+		// $execution_time = ($time_end - $time_start)/60;
+		// dd($execution_time);
 
 		return view('admin.messages.list',$data);
 
@@ -48,6 +48,14 @@ class MessageController extends Controller
     	return view('admin.messages.create',$data);
     }
 
+    public function view($id)
+    {
+    	$message = Message::findByPK($id);
+    	if(empty($message)) abort('404');
+
+    	return view('admin.messages.view',$message);
+
+    }
     public function validateMessage($request)
     {
     	$validatedData = $request->validate([
