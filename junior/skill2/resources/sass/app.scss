@@ -6,9 +6,31 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.table-sort{
+	cursor: pointer;
+	position: relative;
+}
+.table-sort:after{
+	position: absolute;
+	content: "\2191";
+	right: 7%;
+}
+.table-sort:before{
+	position: absolute;
+	content: "\2193";
+	right: 10%;
+}
+
+.table-sort.sorting_asc:before{
+	 opacity: 0.3;
+}
+.table-sort.sorting_desc:after{
+	opacity: 0.3;
 }

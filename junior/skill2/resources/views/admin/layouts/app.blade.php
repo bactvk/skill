@@ -34,7 +34,8 @@
 
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" type="text/css" href="css/app.css"> --}}
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     @yield('css')
   </head>
 
@@ -269,6 +270,7 @@
     <script src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

@@ -62,11 +62,11 @@
                             <tr>
                               <th></th>
                               <th class="table-sort
-                              @if(!empty($sort['id']))
-                                sorting_{{$sort['id']}}
+                              @if(!empty($sort['name']))
+                                sorting_{{$sort['name']}}
                               @else sorting
                               @endif
-                              " colName="id">{{trans('app.name')}}</th>
+                              " colName="name">{{trans('app.name')}}</th>
                               <th>{{trans('app.email')}}</th>
                               <th>{{trans('app.avatar')}}</th>
                               <th>{{trans('app.status')}}</th>

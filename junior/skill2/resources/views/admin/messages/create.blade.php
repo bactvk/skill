@@ -43,20 +43,26 @@
                       <label class="col-form-label col-md-3 col-sm-3 label-align" > Receiver Name <span class="text-danger">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 ">
-                        <input type="text" name="name" class="form-control" value="">
+                        {{-- <input type="text" name="receiver" class="form-control" value=""> --}}
+                        <select name="receiver" class="form-control account_select"> 
+                          <option></option>
+                          @foreach($listAccount as $account)
+                            <option value="{{$account->id}}">{{$account->name}}</option>
+                          @endforeach
+                        </select>
                       </div>
                     </div>
                     <div class="item form-group">
                       <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Subject <span class="text-danger">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 ">
-                        <input type="text"  name="email" class="form-control" value="">
+                        <input type="text"  name="subject" class="form-control" value="">
                       </div>
                     </div>
                     <div class="item form-group">
                       <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Message</label>
                       <div class="col-md-6 col-sm-6 ">
-                        <textarea rows="6" class="form-control">
+                        <textarea rows="6" class="form-control" id="summary-ckeditor" name="message_content">
                           
                         </textarea>
                       </div>
@@ -80,6 +86,25 @@
 
 @endsection
 
+@section('script')
+  <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+  <script>
+
+      CKEDITOR.replace( 'summary-ckeditor',{
+        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+      } );
+
+      $('.account_select').select2();
+  </script>
+
+@endsection
+
 @section('css')
-  
+  <style type="text/css">
+    .select2-container--default .select2-selection--single{
+      border-radius: 0px;
+      border: 1px solid #ced4da;
+    }
+  </style>
 @endsection

@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
             $table->integer('receiver')->nullable();
             $table->string('subject')->nullable();
-            $table->string('message')->nullable();
+            $table->text('content')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->integer('account_id')->nullable();
             $table->integer('deleted_at')->default(0);

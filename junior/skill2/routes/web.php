@@ -48,6 +48,7 @@ Route::group([
 		Route::group([
 			'prefix' => 'messages'
 		],function(){
+			Route::get('/create','Admin\MessageController@list')->name('admin-messages-list');
 			Route::match(['get','post'],'/create','Admin\MessageController@create')->name('admin-messages-create');
 		});
 
