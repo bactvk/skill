@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    {{-- <link rel="icon" href="images/favicon.ico" type="image/ico" /> --}}
     <base href="{{asset('')}}">
 
     <title>@yield('title')</title>
@@ -85,7 +85,7 @@
                   <li><a><i class="fa fa-table"></i> {{trans('app.message')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('admin-messages-create')}}">New</a></li>
-                      <li><a href="#">Inbox</a></li>
+                      <li><a href="{{route('admin-messages-list')}}">Inbox</a></li>
                       <li><a href="#">Sent</a></li>
                     </ul>
                   </li>

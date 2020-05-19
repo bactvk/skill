@@ -131,6 +131,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'receiver' => [
+            'required' => 'Please enter recerver',
+        ],
+        'subject' => [
+            'required' => 'Please enter subject'
+        ],
     ],
 
     /*

@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function login(Request $request) 
     {
         $data = [
-            'username' => $request->input('username',''),
+            'name' => $request->input('username',''),
             'password' => $request->input('password',''),
             
         ];
@@ -32,7 +32,7 @@ class LoginController extends Controller
             $validator = Validator::make($request->all(),$rules,$messages);
 
             if(!$validator->fails()){
-                if( Auth::guard('admin') -> attempt($data) ){
+                if( Auth::attempt($data) ){
                     return redirect()->route('admin-home');
                 }else{ }
 
@@ -46,7 +46,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-    	Auth::guard('admin')->logout();
+    	Auth::logout();
     	return redirect()->route('admin-login');
     }
 }

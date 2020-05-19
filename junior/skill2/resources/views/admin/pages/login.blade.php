@@ -42,7 +42,7 @@
               @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="userName *" name="username" value="{{$username}}" />
+                <input type="text" class="form-control" placeholder="userName *" name="username" value="{{$name}}" />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="password *" name="password" />

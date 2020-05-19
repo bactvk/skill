@@ -28,7 +28,7 @@
               
               <ul class="nav navbar-right panel_toolbox">
                 <div class="">
-                  <a href="{{route('admin-accounts-create')}}" class="btn btn-success">{{trans('app.create')}} <i class="fa fa-plus"></i> </a>
+                  <a href="{{route('admin-messages-create')}}" class="btn btn-success">{{trans('app.create')}} <i class="fa fa-plus"></i> </a>
                 </div>
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -45,13 +45,7 @@
                         <table id="table_list_account" class="table table-striped table-bordered" style="width:100%">
                           <thead>
                             <tr>
-                              <th></th>
-                              <th class="table-sort
-                              @if(!empty($sort['id']))
-                                sorting_{{$sort['id']}}
-                              @else sorting
-                              @endif
-                              " colName="id">{{trans('app.name')}}</th>
+                              <th>No</th>
                               <th>Receiver Name</th>
                               <th>Subject</th>
                               <th>Message</th>
@@ -66,10 +60,12 @@
                             @foreach($lists as $key => $item)
                             <tr>
                               <td>{{ $lists->firstItem() + $key }}</td>
-                              <td></td>
+
+                              <td>{{  $item->getAccount()->name  }}</td>
+
                               <td>{{$item->subject}}</td>
                               <td>
-                                {!! $item->content !!}
+                                {{ strip_tags($item->content) }}
                               </td>
                               <td>
                                 {{ $item->created_at }}
@@ -87,7 +83,6 @@
                               </td>
                             </tr>
                             @endforeach
-                            
 
                           </tbody>
                         </table>
@@ -112,14 +107,6 @@
   <div class="messageSuccess">
     <div class="col-md-4 alert alert-success text-center" style="position: fixed;right: 25%; top: 7%;font-size: 18px">
         {{Session::get('msg')}}
-    </div>
-  </div>
-  @endif
-
-  @if(Session::has('msgError'))
-  <div class="messageSuccess">
-    <div class="col-md-4 alert alert-danger text-center" style="position: fixed;right: 25%; top: 7%;font-size: 18px">
-        {{Session::get('msgError')}}
     </div>
   </div>
   @endif

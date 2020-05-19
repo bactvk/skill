@@ -5,7 +5,7 @@
     <div class="">
 		<div class="page-title">
           <div class="title_left">
-            <h3>{{trans('app.account')}}</small></h3>
+            <h3>Message</small></h3>
           </div>
 
 	        <div class="title_right">
@@ -30,13 +30,15 @@
               </div>
               <div class="x_content">
                 <br />
-                {{-- @if(!empty($ErrMsg))
-                	<div class="alert alert-danger">
-                		@foreach($ErrMsg as $err)
-                			<li>{{$err}}</li>
-                		@endforeach
-                	</div>
-                @endif --}}
+                  @if ($errors->any())
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
                   <form action="" id="demo-form2" class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="item form-group">
@@ -56,7 +58,7 @@
                       <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Subject <span class="text-danger">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 ">
-                        <input type="text"  name="subject" class="form-control" value="">
+                        <input type="text"  name="subject" class="form-control" value="{{$subject}}">
                       </div>
                     </div>
                     <div class="item form-group">
@@ -95,16 +97,9 @@
         filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
       } );
 
-      $('.account_select').select2();
+      $('.account_select').select2({
+        width: '100%'
+      });
   </script>
 
-@endsection
-
-@section('css')
-  <style type="text/css">
-    .select2-container--default .select2-selection--single{
-      border-radius: 0px;
-      border: 1px solid #ced4da;
-    }
-  </style>
 @endsection

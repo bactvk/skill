@@ -34,3 +34,16 @@
 .table-sort.sorting_desc:after{
 	opacity: 0.3;
 }
+
+
+.jconfirm.jconfirm-white .jconfirm-box .jconfirm-buttons, .jconfirm.jconfirm-light .jconfirm-box .jconfirm-buttons {
+	float: none;
+	text-align: center;
+}
+//select2 custom
+.select2-container--default .select2-selection--single{
+  border-radius: 0px !important;
+  border: 1px solid #ced4da !important;
+}
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }

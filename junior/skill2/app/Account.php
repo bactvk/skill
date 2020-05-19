@@ -4,11 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Account extends Authenticatable
 {
 	const PATH_IMG = "assets/img/avatar/";
     protected $table = 'accounts';
     protected $fillable = ['id','name','status','avatar','email','deleted_at'];
+    protected $rememberTokenName = false;
 
     public static function findByPK($id)
     {
