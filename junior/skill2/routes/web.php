@@ -20,6 +20,7 @@ Route::group([
 ], function(){
 
 	Route::match(['get','post'],'/login','Admin\LoginController@login')->name('admin-login');
+	Route::match(['get','post'],'/signup','Admin\LoginController@signup')->name('admin-signup');
 	Route::get('/logout','Admin\LoginController@logout')->name('admin-logout');
 
 	Route::group([
@@ -55,13 +56,12 @@ Route::group([
 		});
 
 	});
-
-	
-
-
-
 });
 
 Route::post('/language','LanguageController@changeLanguage');
 Route::get('refresh_captcha', 'Admin\HomeController@refreshCaptcha')->name('refresh_captcha');
 
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');

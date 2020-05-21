@@ -27,6 +27,17 @@
 		'cancel' 		=> 'Cancel',
 		'save' 			=> 'Save',
 		'message'  		=> 'Message',
+		'new' => 'New',
+		'receiver_name' => 'Receiver Name',
+		'subject' => 'Subject',
+		'send'    => 'Send',
+		'inbox'   => 'Inbox',
+		'date' => 'Date',
+		'view' => 'View',
+		'sender_name' => 'Sender Name',
+		'seen' => 'seen',
+		'not_seen' => 'not seen'
+
 	];
 
 ?>

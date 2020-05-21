@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Message extends Model
 {
+    protected $fillable = [
+        'status'
+    ];
     public static function getList($inputs = [])
     {
         $query = self::where('messages.deleted_at',0);
@@ -16,7 +20,7 @@ class Message extends Model
         }else{
             $query -> orderBy('messages.created_at','desc');
         }
-        $lists = $query->leftJoin("accounts","accounts.id","=","messages.receiver")->select("messages.id as messages_id","receiver","subject","content","name","messages.created_at")->paginate(20);
+        $lists = $query->where('receiver',Auth::user()->id)->paginate(5);
         // $lists = $query->paginate(20);
     	return $lists;
             
@@ -36,5 +40,18 @@ class Message extends Model
     public static function findByPK($id)
     {
         return self::find($id);
+    }
+    public static function deleteMesage($id)
+    {
+        return self::find($id)->delete();
+    }
+
+    public static function getMessageNotSeen($auth_id)
+    {
+        return self::where(function($q) use ($auth_id){
+            $q -> where('messages.receiver',$auth_id)
+               -> where('messages.status',0)
+               -> where('messages.deleted_at',0);
+        })->leftJoin('accounts','accounts.name','=','messages.sender')->select("messages.id","messages.subject","messages.created_at","messages.sender","messages.content","accounts.name","accounts.avatar")->get();
     }
 }

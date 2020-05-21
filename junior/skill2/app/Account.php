@@ -68,4 +68,10 @@ class Account extends Authenticatable
 
         return $getDataByID->update(['deleted_at' => 1]);
     }
+
+
+    public static function getName($id)
+    {
+        return self::where('id',$id)->where('deleted_at',0)->first();
+    }
 }

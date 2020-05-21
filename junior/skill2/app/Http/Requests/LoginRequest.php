@@ -36,6 +36,9 @@ class LoginRequest extends FormRequest
             'password.required' => 'Please input password',
             'captcha.required'  => 'Please input captcha',
             'captcha.captcha' => 'invalid captcha',
+            'email.required' => 'Please input email',
+            'email.unique' => 'Email existed',
+            'email.email' => 'Please input email valid',
 
         ];
     }

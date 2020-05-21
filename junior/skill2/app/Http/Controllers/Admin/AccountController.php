@@ -23,11 +23,14 @@ class AccountController extends Controller
     public function create(Request $request)
     {
     	$createSuccess = false;
+        $pass = str_random(7);
+
     	$data = [
     		'name' => $request->input('name',''),
     		'email' => $request->input('email',''),
     		'avatar' => $request->avatar,
-    		'status' => $request->input('status')
+    		'status' => $request->input('status'),
+            'password' => bcrypt($pass)
     	];
     	
     	if($request->isMethod('post')){
@@ -44,8 +47,8 @@ class AccountController extends Controller
                 //send Mail
                 $condition = [
                     'email' => $data['email'],
-                    'username' => str_random(5),
-                    'password' => str_random(5),
+                    'username' => $data['name'],
+                    'password' => $pass,
                 ];
                 MailTemplate::sendMail($condition);
                 $create = Account::createAccount($data);
@@ -151,8 +154,7 @@ class AccountController extends Controller
             return $pdf->download($fileName);
         }else{
             return redirect()->route('admin-accounts-list')->with('msgError','No result to print');
-        }
-        
+        }      
     }
     public function getAll()
     {

@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
+use App\Message;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // \URL::forceScheme('https');
+        view()->composer('admin.layouts.app',function($view){
+            $messageNotSeen = Message::getMessageNotSeen(\Auth::user()->id);
+            $view->with('messageNotSeen', $messageNotSeen );
+        });
+
     }
 }

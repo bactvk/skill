@@ -38,7 +38,9 @@
               
               <ul class="nav navbar-right panel_toolbox">
                 <div class="">
+                  @can('isAdmin')
                   <a href="{{route('admin-accounts-create')}}" class="btn btn-success">{{trans('app.create')}} <i class="fa fa-plus"></i> </a>
+                  @endcan
                 </div>
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -94,9 +96,11 @@
                                   <span class="btn btn-light">{{trans('app.inactive')}}</span>
                                 @endif
                               </td>
-                              <td class ="action">  
+                              <td class ="action"> 
+                                  @can('isAdmin')
                                   <a href="{{route('admin-accounts-edit',$item->id)}}" class="btn btn-primary">{{trans('app.edit')}}</a>
                                   <a href="{{route('admin-accounts-delete',$item->id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
+                                  @endcan
                               </td>
                             </tr>
                             @endforeach
@@ -139,10 +143,3 @@
 
 @endsection
 
-@section('script')
-  <script type="text/javascript">
-    $(document).ready(function(){
-       $('.messageSuccess').slideUp(3000);
-    })
-  </script>
-@endsection

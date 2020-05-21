@@ -21,7 +21,7 @@ class CreateMessagesTable extends Migration
             $table->string('subject')->nullable();
             $table->text('content')->nullable();
             $table->tinyInteger('status')->default(0);
-            $table->integer('account_id')->nullable();
+            $table->string('sender')->nullable();
             $table->integer('deleted_at')->default(0);
 
             $table->timestamp('created_at')->useCurrent();

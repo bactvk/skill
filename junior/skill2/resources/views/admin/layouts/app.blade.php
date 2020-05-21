@@ -58,7 +58,7 @@
               </div>
               <div class="profile_info">
                 <span>{{trans('app.welcome')}},</span>
-                <h2>Admin</h2>
+                <h2>{{Auth::user()->name}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -78,15 +78,16 @@
                   <li><a><i class="fa fa-edit"></i> {{trans('app.account')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('admin-accounts-list')}}">{{trans('app.list')}} {{trans('app.account')}}</a></li>
+                      @can('isAdmin')
                       <li><a href="{{route('admin-accounts-create')}}">{{trans('app.manage')}} {{trans('app.account')}}</a></li>
+                      @endcan
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-table"></i> {{trans('app.message')}} <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('admin-messages-create')}}">New</a></li>
-                      <li><a href="{{route('admin-messages-list')}}">Inbox</a></li>
-                      <li><a href="#">Sent</a></li>
+                      <li><a href="{{route('admin-messages-create')}}">{{trans('app.new')}}</a></li>
+                      <li><a href="{{route('admin-messages-list')}}">{{trans('app.inbox')}}</a></li>
                     </ul>
                   </li>
                   
@@ -144,7 +145,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/img/logo.jpg" alt="">Admin
+                    <img src="assets/img/logo.jpg" alt="">{{Auth::user()->name}}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -167,40 +168,34 @@
                   </select>
                 </li>
 
+                {{-- message --}}
                 <li role="presentation" class="nav-item dropdown open col-1">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
+                    <span class="badge bg-green">{{$messageNotSeen->count()}}</span>
                   </a>
                   <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="assets/img/logo.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="assets/img/logo.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
+                    
+                    @foreach($messageNotSeen as $item)
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="{{route('admin-messages-view',$item->id)}}">
+                          <span class="image">
+                              <img src="assets/img/avatar/{{$item->avatar}}" alt=" "  width="40" height="40">
+                          </span>
+                          <span>
+                            <span style="font-weight: bold">{{$item->sender}}</span>
+                            <span class="time">{{$item->created_at}}</span>
+                          </span>
+                          <span class="message">
+                            {{strip_tags($item->content)}}
+                          </span>
+                        </a>
+                      </li>
+                    @endforeach
                     
                     <li class="nav-item">
                       <div class="text-center">
-                        <a class="dropdown-item">
+                        <a class="dropdown-item" href="{{route('admin-messages-list')}}">
                           <strong>See All Alerts</strong>
                           <i class="fa fa-angle-right"></i>
                         </a>
@@ -273,6 +268,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     @yield('script')
   </body>

@@ -34,7 +34,7 @@ class MessageController extends Controller
     		'receiver' => $request->input('receiver',''),
     		'subject'  => $request->input('subject',''),
     		'content'  => str_replace("&#39;","'",$request->input('message_content','')),
-    		'account_id' => Auth::user()->id,
+    		'sender' => Auth::user()->name,
     	];
 
     	if($request->isMethod('post')){
@@ -52,10 +52,20 @@ class MessageController extends Controller
     {
     	$message = Message::findByPK($id);
     	if(empty($message)) abort('404');
+        $message->update(['status'=>1]);
+        
+        $message['receiver_name'] = Account::getName($message->receiver);
+
 
     	return view('admin.messages.view',$message);
 
     }
+    public function delete($id)
+    {
+        $deleteSuccess = Message::deleteMesage($id);
+        if($deleteSuccess) return redirect()->route('admin-messages-list')->with('msg','Delete successfuly');
+    }
+
     public function validateMessage($request)
     {
     	$validatedData = $request->validate([
@@ -63,4 +73,6 @@ class MessageController extends Controller
     		'subject' => 'required',
     	]);
     }
+
+
 }

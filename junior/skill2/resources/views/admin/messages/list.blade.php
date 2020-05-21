@@ -6,14 +6,13 @@
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>{{trans('app.account')}}</small></h3>
+            <h3>{{trans('app.message')}}</small></h3>
           </div>
 
           <div class="title_right">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="">{{trans('app.home')}}</a></li>
-                <li class="breadcrumb-item ">{{trans('app.account')}}</li>
-                <li class="breadcrumb-item active">{{trans('app.list')}}</li>
+                <li class="breadcrumb-item"><a href="">{{trans('app.message')}}</a></li>
+                <li class="breadcrumb-item active">{{trans('app.inbox')}}</li>
               </ol>
           </div>
 
@@ -46,12 +45,12 @@
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Receiver Name</th>
-                              <th>Subject</th>
-                              <th>Message</th>
-                              <th>Date</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              <th>{{trans('app.sender_name')}}</th>
+                              <th>{{trans('app.subject')}}</th>
+                              <th>{{trans('app.message')}}</th>
+                              <th>{{trans('app.date')}}</th>
+                              <th>{{trans('app.status')}}</th>
+                              <th>{{trans('app.action')}}</th>
                             </tr>
                           </thead>
 
@@ -61,7 +60,7 @@
                             <tr>
                               <td>{{ $lists->firstItem() + $key }}</td>
 
-                              <td>{{  $item->getAccount()->name  }}</td>
+                              <td>{{  $item->sender  }}</td>
 
                               <td>{{$item->subject}}</td>
                               <td>
@@ -72,14 +71,14 @@
                               </td>
                               <td>
                                 @if($item->status == 1)
-                                  <span class="btn btn-success">Seen</span>
+                                  <span class="btn btn-success">{{trans('app.seen')}}</span>
                                 @else
-                                  <span class="btn btn-light">not seen</span>
+                                  <span class="btn btn-light">{{trans('app.not_seen')}}</span>
                                 @endif
                               </td>
                               <td class ="action">  
-                                  <a href="{{route('admin-messages-view',$item->messages_id)}}" class="btn btn-primary">View</a>
-                                  <a href="{{route('admin-messages-delete',$item->messages_id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
+                                  <a href="{{route('admin-messages-view',$item->id)}}" class="btn btn-primary">{{trans('app.view')}}</a>
+                                  <a href="{{route('admin-messages-delete',$item->id)}}" class="btn btn-danger btn_delete">{{trans('app.delete')}}</a>
                               </td>
                             </tr>
                             @endforeach

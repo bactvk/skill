@@ -26,6 +26,16 @@
 		'cancel' 		=> 'Hủy',
 		'save' 			=> 'Lưu',
 		'message'  		=> 'Thông báo',
+		'receiver_name' => 'Tên người nhận',
+		'new'     => 'Mới',
+		'subject' => 'Đối tượng',
+		'send'    => 'Gửi',
+		'inbox'   => 'Trao đỗi',
+		'date' => 'Ngày',
+		'view' => 'Xem',
+		'sender_name' => 'Tên người gửi',
+		'seen' => 'Đã xem',
+		'not_seen' => 'Chưa xem'
 	];
 
 ?>

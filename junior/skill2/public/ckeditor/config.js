@@ -37,5 +37,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:Link;image:advanced';
 	config.image_previewText = ' ';
 	// config.disallowedContent = 'img{width,height,border}';
-
+	
 };

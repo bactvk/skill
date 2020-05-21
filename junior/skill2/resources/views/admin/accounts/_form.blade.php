@@ -47,15 +47,3 @@
 
 </form>
 
-@section('script')
-  
-  <script type="text/javascript">
-    if($('#getFile').value() == ""){
-
-    }else{
-
-    }
-
-  </script>
-
-@endsection

@@ -26,6 +26,16 @@
 		'cancel' 		=> 'キャンセル',
 		'save' 			=> 'セーブ',
 		'message'  		=> 'メッセージ',
+		'new'  => '新着',
+		'receiver_name' => '受信名',
+		'subject' => '件名',
+		'send'    => '送る',
+		'inbox'   => '受信トレイ',
+		'date' => '日付',
+		'view' => '見る',
+		'sender_name' => '送信者名',
+		'seen' => '見た',
+		'not_seen' => '見ていません'
 	];
 
 ?>
